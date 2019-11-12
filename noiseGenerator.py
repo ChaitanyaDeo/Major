@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-
 def add_gaussian_noise(img):
     mean=28
     var=100
