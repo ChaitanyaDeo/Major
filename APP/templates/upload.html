@@ -47,48 +47,23 @@
 
 		<!-- Highlights -->
 			<div class="container">
-					<form method = POST action="upload2" enctype = "multipart/form-data">
+					<form method = POST action="result" enctype = "multipart/form-data">
 						<div class="container">
-						<div class="wrapper">
-						  <div class="box">
-							<div class="js--image-preview"></div>
-							<div class="upload-options">
-							  <label>
-								<input type="file" class="image-upload" name="photos" accept="image/*" required placeholder="select an image to apply style"/>
-							  </label>
+							<div class="wrapper">
+								<div class="box">
+									<div class="js--image-preview"></div>
+									<div class="upload-options">
+									<label>
+										<input type="file" class="image-upload" name="photos" accept="image/*" required placeholder="select an image to denoise it"/>
+									</label>
+									</div>
+								</div>
 							</div>
-						  </div>
-						</div>
-						<div class="col-xs-12">
-						<center>
-						<p>Select Filters:</p>
-						  <div class="cc-selector-2">
-							<input id="candy" type="radio" name="filter" value="candy" />
-							<label class="drinkcard-cc candy" for="candy"></label>
-							<input id="mosaic" type="radio" name="filter" value="mosaic" />
-							<label class="drinkcard-cc mosaic" for="mosaic"></label>
-							<input id="rain_princess" type="radio" name="filter" value="candy" />
-							<label class="drinkcard-cc rain_princess" for="rain_princess"></label>
-							<input id="udnie" type="radio" name="filter" value="udnie" />
-							<label class="drinkcard-cc udnie" for="udnie"></label>
-						  </div>
-						</center>
-						</div>
-						<div class="col-xs-12">
-						<center>
-						<p>Select Choice of Effects:</p>
-						  <select class="" name = "choice" required>
-							<option value = "complete" >Complete</option>
-							<option value = "foreground" >Foreground</option>
-							<option value = "background" >Background</option>
-						  </select>
-						</center>
-						</div>
-						<div class="col-xs-12">
-						  <center>
-							<input type="submit" class="btn btn-primary">
-						  </center>
-						</div>
+							<div class="col-xs-12">
+								<center>
+									<input type="submit" class="btn btn-primary">
+								</center>
+							</div>
 						</div>
 					  </form>
 				  
@@ -105,10 +80,10 @@
     
             <div class="row">
     
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-8 col-md-6">
                       <img src="{{url_for('static',filename ='assets/original.png')}} " alt="Bridge">
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-8 col-md-6">
   
                         <img src="{{url_for('static',filename ='assets/cleared.png')}}" alt="Park">
                 </div>
