@@ -26,6 +26,13 @@ app = Flask(__name__)
 def upload():
 	return render_template('upload.html')
 
+@app.route('/ajax/index')
+def ajax_index():
+	
+	functionToImageProcessing(pathToFile)
+	
+	return render_template('preview.html',original = 'uploads/'+str(filename),newimg = 'images/cleaned'+str(filename))
+
 @app.route("/result",methods=['POST','GET'])
 def upload_file():
 	if request.method == 'POST':
@@ -40,14 +47,14 @@ def upload_file():
 			flash('No selected file')
 			return render_template(upload.html,error = "Error File not found, please try again.")
 		if file and allowed_file(file.filename):
+			global filename
+			global pathToFile
+			
 			filename = secure_filename(file.filename)
-			pathToFile = os.getcwd() + '/static/uploads/'+str(file.filename)
+			pathToFile = os.getcwd() + '/static/uploads/'+str(filename)
 			file.save(pathToFile)
 			
-			functionToImageProcessing(pathToFile)
-
-			
-			return render_template('preview.html',original = 'uploads/'+str(filename),newimg = 'images/cleaned'+str(filename))
+			return render_template('index.html')
 		else:
 			return render_template(upload.html,error = "Error while storing file, Please try again")
 

@@ -6,13 +6,13 @@ body {
 }
 
 .container.gallery-container {
-    background-color: #fff;
-    color: #35373a;
+    opacity: 100;
     min-height: 100vh;
     padding: 30px 50px;
 }
 
 .gallery-container h1 {
+    color: cornsilk;
     text-align: center;
     margin-top: 50px;
     font-family: 'Droid Sans', sans-serif;
