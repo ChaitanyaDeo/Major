@@ -23,8 +23,8 @@ print(img.shape,img.dtype)
 
 noise=add_gaussian_noise(img)
 
-cv2.imshow('image',img)
-cv2.imshow('noise',noise)
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+plt.figure(figsize=(8,10))
+plt.imshow(np.hstack((img,noise)))
+plt.savefig('E:/Denoising/Results/noiseGenerator.pdf')
+plt.show()
+plt.close()
