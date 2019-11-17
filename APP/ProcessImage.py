@@ -17,6 +17,8 @@ class Process:
     def startProcessing(self, usingCBD = True, choice = "real"):
         if usingCBD:
             processedImage = self.__denoise.CBDdenoise(self.imagePath, choice)
+        else:
+            processedImage = self.__denoise.UNetdenoise(self.imagePath)
 
         pathToSave = os.getcwd() + '/static/images/cleaned'+self.__imageName
         processedImage.save(pathToSave)

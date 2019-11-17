@@ -12,4 +12,10 @@ class Denoise:
         return denoised
 
     def UNetdenoise(self, imagePath):
-        pass
+        some_image = np.zeros((5,5))
+
+        """ 
+        processing using UNet arch
+        """
+
+        return some_image

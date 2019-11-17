@@ -6,9 +6,12 @@ import json
 #***************************************************To process IMAGE******************************************************************#
 from ProcessImage import Process
 
-def functionToImageProcessing(path):
+def functionToImageProcessing(path, algo, choice):
 	processObject = Process(path)
-	processObject.startProcessing()
+	if algo == 'CBDNet':
+		processObject.startProcessing(choice=choice)
+	else:
+		processObject.startProcessing(False)
 	return
 
 #***************************************************WEB APP******************************************************************#
@@ -28,7 +31,7 @@ def upload():
 @app.route('/ajax/index')
 def ajax_index():
 	
-	functionToImageProcessing(pathToFile)
+	functionToImageProcessing(pathToFile, algo, choiceType)
 	
 	return render_template('preview.html',original = 'uploads/'+str(filename),newimg = 'images/cleaned'+str(filename))
 
@@ -48,10 +51,16 @@ def upload_file():
 		if file and allowed_file(file.filename):
 			global filename
 			global pathToFile
+			global algo
+			global choiceType
+			
 			
 			filename = secure_filename(file.filename)
 			pathToFile = os.getcwd() + '/static/uploads/'+str(filename)
 			file.save(pathToFile)
+
+			algo = request.form['algo']
+			choiceType = request.form['choice']
 			
 			return render_template('index.html')
 		else:

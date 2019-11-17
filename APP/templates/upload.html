@@ -46,6 +46,23 @@
 				text-transform: uppercase;
 				letter-spacing: 1px;
 			}
+
+			button, input, optgroup, select, textarea {
+			margin: 0;
+			font: inherit;
+			color: #fff;
+			}	
+			input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="search"], input[type="url"], select, textarea {
+			background-color: rgba(0, 0, 0, 0.075);
+			border-color: #8a6d3b;
+			}	
+			body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: cornsilk;
+    background-color: #fff;
+}
 			</style>
   </head>
 	<body>
@@ -79,6 +96,26 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="col-xs-12">
+								<center>
+									<p>Select Choice of Algorithm:</p>
+									  <select class="" name = "algo" id='o'>
+										<option value = "CBDNet" selected>CBDNet</option>
+										<option value = "Coming Soon" disabled>Coming Soon</option>
+									  </select>
+									</center>
+							</div>
+							<div class="col-xs-12">
+							<center>
+								<p>Select Choice of Type:</p>
+								  <select class="" name = "choice" id='t'>
+									<option value = "Real" >Real</option>
+									<option value = "All" >All</option>
+									<option value = "Synthetic" >Synthetic</option>
+								  </select>
+								</center>
+								</div>
 							<div class="col-xs-12">
 								<center>
 									<input type="submit" class="button button1">
