@@ -8,7 +8,6 @@ from ProcessImage import Process
 
 def functionToImageProcessing(path):
 	processObject = Process(path)
-	print("SUCCESSFULLY READ IMAGE")
 	processObject.startProcessing()
 	return
 

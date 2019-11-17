@@ -1,14 +1,15 @@
 import pandas as pd
 import numpy as np 
 import time 
-
+from CBDNetProcess import processUsingCBD
 
 class Denoise:
     
-    def denoise(self, image):
+    def CBDdenoise(self, imagePath, choice):
 
-        '''
-        do some processing here
-        '''
-        time.sleep(10)
-        return image
+        denoised = processUsingCBD(imagePath, choice)
+        
+        return denoised
+
+    def UNetdenoise(self, imagePath):
+        pass
