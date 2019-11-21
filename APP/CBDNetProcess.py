@@ -28,10 +28,14 @@ def processUsingCBD(imagePath, typeChoice):
     model.eval()
 
     with torch.no_grad():
-        noisy_img = cv2.imread(imagePath)
-        w, h = noisy_img.shape[0], noisy_img.shape[1]
-        if noisy_img.shape[0] > 512 or noisy_img.shape[1] > 512:
-            noisy_img = cv2.resize(noisy_img, (512,512))
+        original_noisy_img = cv2.imread(imagePath)
+        if original_noisy_img.shape[0] > 512 or original_noisy_img.shape[1] > 512:
+            scale_percent = 512 / max(original_noisy_img.shape[1], original_noisy_img.shape[0])
+            width = int(original_noisy_img.shape[1] * scale_percent)
+            height = int(original_noisy_img.shape[0] * scale_percent)
+            dim = (width, height)
+            noisy_img = cv2.resize(original_noisy_img, dim)
+            print("DOWNSCALED FROM ", original_noisy_img.shape, " TO ", noisy_img.shape, ' with scale factor of ', scale_percent)
         noisy_img = noisy_img[:,:,::-1] / 255.0
         noisy_img = np.array(noisy_img).astype('float32')
 
@@ -45,6 +49,6 @@ def processUsingCBD(imagePath, typeChoice):
         #output_np = np.resize(output_np, (noisy_img[0],noisy_img[1]))
         #concated = np.concatenate((temp_noisy_img, output_np), axis=1) * 255
         denoised = (output_np*255).astype(np.uint8)
-        denoised = Image.fromarray(denoised).resize((h, w))
+        denoised = Image.fromarray(denoised)
         
     return denoised
